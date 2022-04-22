@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
-    const port = 3000
+const ejs = require('ejs')
+const port = 3000
 
+app.set('view engine', 'ejs')
 app.use('/styles',express.static(__dirname +'/styles'));
 
 app.use("/", require("./routes/"));
