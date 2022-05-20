@@ -5,15 +5,22 @@ var schema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    firstName: {
+    // name: {
+    //     type: String,
+    //     required: true,
+    // },
+    password: {
         type: String,
-        default: ''
+        required: true,
     },
-    lastName: {
+    // re_pass:  {
+    //     type: String,
+    //     required: true,
+    // },
+    root:{
         type: String,
-        default: ''
-    },
-    phone: String,
+        default:''
+    }
 });
 var user = new mongoose.model('User', schema);
 module.exports = user;
