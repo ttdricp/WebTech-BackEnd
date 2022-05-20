@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser=require('body-parser');
+let urlencodedParser = bodyParser.urlencoded({ extended: false });
 const dbConfig = require('./config/database.config.js');
 
 const cookieSession = require("cookie-session");
@@ -61,9 +62,29 @@ app
     .get("/register", (req, res) => {
         res.render("register");
     })
-    .get("/home", authenticateUser, (req, res) => {
-    res.render("home", { user: req.session.user });
-});
+    .get("/", authenticateUser, (req, res) => {
+    res.render("index", { user: req.session.user });
+    })
+
+
+    .get('/create',function (req,res){
+    res.render('create')
+})
+    .get('/update',function (req,res){
+    res.render('update')
+
+})
+    .get('/delete',function (req,res){
+    res.render('delete')
+
+})
+    .get('results',function (req,res){
+    res.render('results')
+
+})
+    .get('/find',function (req,res) {
+        res.render('find')
+    });
 
 // route for handling post requirests
 app

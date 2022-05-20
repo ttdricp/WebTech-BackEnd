@@ -5,18 +5,18 @@ var schema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    // name: {
-    //     type: String,
-    //     required: true,
-    // },
+    name: {
+        type: String,
+        required: true,
+    },
     password: {
         type: String,
         required: true,
     },
-    // re_pass:  {
-    //     type: String,
-    //     required: true,
-    // },
+    re_pass:  {
+        type: String,
+        required: true,
+    },
     root:{
         type: String,
         default:''
